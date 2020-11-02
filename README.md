@@ -20,7 +20,7 @@ https://www.themoviedb.org/
 - 영화를 최신 순으로 가져올 때
 https://api.themoviedb.org/3/movie/latest?api_key=<<api_key>>&language=en-US (ko-KR)
 - 상세
-https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US (ko-KR)
+https://api.themoviedb.org/3/credits/?api_key=<<api_key>>&language=en-US (ko-KR)
 - 리뷰
 https://api.themoviedb.org/3/movie/{movie_id}/reviews?api_key=<<api_key>>&language=en-US (ko-KR)
 - 최신
@@ -37,4 +37,12 @@ https://image.tmdb.org/t/p : 동일한 부분
 - Grid Style은 LandingPage 뿐 아니라 다른 곳에서도 쓸 수 있기 때문에
 commons 폴더를 생성하여 관리
 
+
+## Detail Page
+1. 특정 영화 해당하는 자세한 정보 가져오기 (props.match.params.movieId)
+2. Movie API에서 가져온 정보를 State에 넣기
+3. 전체적인 Template 생성
+4. 영화에 나오는 출연진 정보 가져오기
+5. 가져온 출연진 정보 State에 넣기
+6. State에 보관된 Data들 화면에 보여주기
 

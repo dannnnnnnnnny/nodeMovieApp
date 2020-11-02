@@ -46,3 +46,10 @@ commons 폴더를 생성하여 관리
 5. 가져온 출연진 정보 State에 넣기
 6. State에 보관된 Data들 화면에 보여주기
 
+
+## 영화 Favorite 수 체크
+1. Favorite Model 생성
+2. Favorite Button UI 생성
+3. 얼마나 많은 사람이 이영화를 Favorite 리스트에 넣었는지 숫자 정보 확인
+4. 내가 이 영화를 이미 Favorite 리스트에 넣었는지 확인
+5. 데이터 화면에 보여주기

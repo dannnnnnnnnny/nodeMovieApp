@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { FaCode } from "react-icons/fa";
 import { API_URL, API_KEY, IMAGE_BASE_URL } from "../../Config";
 import MainImage from './Sections/MainImage';
+import axios from "axios";
+import { Row } from "antd";
+import GridCards from "../commons/GridCards";
 
 function LandingPage() {
 
@@ -17,13 +20,14 @@ function LandingPage() {
         .then(response => response.json())
         .then(response => {
 
-            console.log(response);
-            setMovies([response.results])
+            // console.log(response.results);
+            setMovies(...response.results)
             setMainMovieImage(response.results[0])
         })
         
     }, [])
 
+    
 
     return (
         <div style={{ width: '100%', margin: '0'}}>
@@ -36,22 +40,39 @@ function LandingPage() {
             {mainMovieImage &&
                 <MainImage 
                     image={`${IMAGE_BASE_URL}w1280${mainMovieImage.backdrop_path}`}
-                    title={mainMovieImage.original_title}
+                    title={mainMovieImage.title}
                     text={mainMovieImage.overview}    
                 />
             }
 
-            <div style={{ width: '85%', margin: '1rem auto'}}>
+            <div style={{ width: '82%', margin: '1rem auto'}}>
 
                 <h2>Movies by latest</h2>
                 <hr />
 
                 {/* Movie Grid Cards */}
+                {/* Row: gutter를 주면 각 card 사이에 여백이 생김 */}
+                <Row gutter={[16, 16]}> 
+                    {movies.map((movie, index) => (
+                        <React.Fragment key={index}>
+                            <GridCards 
+                                image={movie.poster_path ?
+                                    `${IMAGE_BASE_URL}w300${movie.poster_path}` : null}
+                                movieId={movie.id}
+                                movieName={movie.original_title}
+                            />
+                        </React.Fragment>
+                    ))}
+                    
+                </Row>
+                
+
+
 
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-
+                {/* <button onClick={loadMoreItems}> Load More </button> */}
             </div>
 
         </div>

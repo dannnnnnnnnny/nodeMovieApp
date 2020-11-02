@@ -33,3 +33,8 @@ https://api.themoviedb.org/3/movie/latest?api_key=<<api_key>>&language=en-US (ko
 https://image.tmdb.org/t/p : 동일한 부분
 /original : 이미지 사이즈 크기 (w500)
 /wwemzKWzjKYJFfCeiB57q3r4Bcm.svg : 유니크한 이미지 이름
+
+- Grid Style은 LandingPage 뿐 아니라 다른 곳에서도 쓸 수 있기 때문에
+commons 폴더를 생성하여 관리
+
+

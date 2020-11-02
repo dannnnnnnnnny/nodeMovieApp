@@ -28,7 +28,6 @@ router.post('/favorited', (req, res) => {
     Favorite.find({ "movieId": req.body.movieId, "userFrom": req.body.userFrom })
     .exec((err, info) => {
         if (err) return res.status(400).send(err)
-
         let result = false;
         if (info.length !== 0) {
             result = true
@@ -43,6 +42,7 @@ router.post('/favorited', (req, res) => {
 router.post('/addTofavorite', (req, res) => {
 
     // 데이터 추가 및 저장
+    console.log("추가 : ", req.body);
     const favorite = new Favorite(req.body);
 
     favorite.save((err, doc) => {
@@ -60,6 +60,16 @@ router.post('/removeFromfavorite', (req, res) => {
         .exec((err, doc) => {
             if(err) return res.status(400).send(err)
             return res.status(200).json({ success: true, doc })
+        })
+})
+
+
+router.post('/getFavoriteMovie', (req, res) => {
+
+    Favorite.find({'userFrom' : req.body.userFrom})
+        .exec((err, favorites) => {
+            if(err) return res.status(400).send(err);
+            return res.status(200).json({success:true, favorites})
         })
 })
 

@@ -4,6 +4,7 @@ import MainImage from "../LandingPage/Sections/MainImage";
 import MovieInfo from "./Sections/MovieInfo";
 import GridCards from "../commons/GridCards";
 import { Row } from "antd";
+import Favorite from "./Sections/Favorite";
 
 function MovieDetail(props) {
 
@@ -51,6 +52,15 @@ function MovieDetail(props) {
             {/* Body */}
             <div style={{ width: '85%', margin: '1rem auto' }}>
                 
+                {/* Favorite 버튼 */}
+                <div style={{ display: 'flex', justifyContent: 'flex-end'}}>
+                    <Favorite 
+                        movieInfo={movie} 
+                        movieId={movieId}
+                        userFrom={window.localStorage.getItem('userId')} // localstorage에 저장됨   
+                    />
+                </div>
+
                 {/* Movie Info */}
                 <MovieInfo 
                     movie={movie}
